@@ -1132,7 +1132,7 @@
       </div>
     </header>
 
-    <main id="top">
+    <main>
       <!-- HERO -->
       <div class="hero">
         <div class="wrap hero-grid">
@@ -2925,7 +2925,7 @@
             /* "Next Service" link at the foot of a service page: it also
                carries the legal-back styling class, so it must be routed
                BEFORE the legal-back branch below, otherwise it is treated
-               as "Back to NovaStack" and closes the view to #top. Open the
+               as "Back to NovaStack" and closes the view to the homepage root. Open the
                next service page instead; its href already wraps from the
                last service back to the first (nextSvc is computed with
                (index + 1) % SERVICES.length when the page is built). */
@@ -2939,11 +2939,12 @@
             closeView('#services');
           } else if (a.classList.contains('legal-back')){
             e.preventDefault();
-            closeView('#top');
+            closeView();
           } else if (href === '/'){
-            /* Brand / "Back to NovaStack" home links. */
+            /* Brand / "Back to NovaStack" home links: go to the homepage
+               root / with no hash fragment. */
             e.preventDefault();
-            if (current){ closeView('#top'); } else { scrollTop(); }
+            if (current){ closeView(); } else { scrollTop(); }
           } else if (current && href.charAt(0) === '#' && href.length > 1 && href.charAt(1) !== '/'){
             /* Leaving a sub-page for a home-page section: restore the home
                view first, then let the normal anchor jump happen. */
