@@ -486,6 +486,11 @@
       @media (prefers-color-scheme: dark){.bestfor b{color:var(--accent)}}
       .svc-panel .panel-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
       .svc-panel .panel-cta .note{font-size:.88rem;color:var(--muted)}
+      /* Breathing room under the full-page link: its bottom margin keeps
+         clear separation from the secondary note text below it when the
+         CTA row wraps (narrow panels, mobile and tablet), so the bottom
+         of the service tab never feels cramped. */
+      .svc-panel .panel-cta .view-full-link{margin-bottom:18px}
       /* Desktop/tablet side panel: exactly the height of the 9-service
          list beside it, so the two columns start and end at the same
          vertical positions. The script measures the list and stores its
