@@ -165,7 +165,14 @@
         --muted:#5c6b60;
         --line:#d8ded6;
         --line-strong:#c3ccc1;
-        --accent:#e8490f;
+        /* Light theme accent darkened to #c23d0d for WCAG 2.1 AA 1.4.3:
+           white text on this colour (the .btn-accent "Start a project"
+           button) is 5.29:1 and this colour as text on the white panel
+           surface (the .view-full-link "View full service page" link) is
+           5.29:1, both above the 4.5:1 minimum. The previous #e8490f
+           measured 3.89:1. Dark theme keeps its brighter accent below,
+           which passes on dark surfaces at 6.43:1. */
+        --accent:#c23d0d;
         --accent-strong:#c23907;
         --pick-sel-bg:#c23907;
         --pick-sel-fg:#ffffff;
