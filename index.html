@@ -225,6 +225,10 @@
       button,[role="button"],select,summary{min-height:2.75rem}
       input:not([type="checkbox"],[type="radio"]),textarea{min-height:2.75rem}
       :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+      /* Page titles are focused by script on route change (tabindex="-1") so
+         screen readers land on them; they must never show a visible ring.
+         Interactive elements keep their :focus-visible ring above. */
+      h1[tabindex="-1"]:focus,h1[tabindex="-1"]:focus-visible{outline:none;box-shadow:none}
       .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
       @media (max-width:520px){.wrap{padding:0 18px}}
       .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
