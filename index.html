@@ -1150,6 +1150,81 @@
         .wh-c1{order:2}.wh-c2{order:3}.wh-c3{order:4}
         .wh-dash{position:static;width:100%;order:5}
       }
+      /* App hero visual: real food ordering app, live tracking phone + menu phone, dark premium panel */
+      .sp-visual.ap-vis{background:linear-gradient(165deg,#121813,#0a0f0c 72%);border-color:#263129;box-shadow:0 24px 50px rgba(6,10,8,.3)}
+      .sp-visual.ap-vis .vis-cap{color:#d3e0d4}
+      .ap-stage{position:relative}
+      .ap-glow{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:340px;height:220px;background:radial-gradient(closest-side,rgba(255,106,56,.13),transparent 72%);pointer-events:none}
+      .ap-glow2{position:absolute;right:-40px;bottom:-10px;width:240px;height:170px;background:radial-gradient(closest-side,rgba(76,195,138,.1),transparent 72%);pointer-events:none}
+      .ap-phones{position:relative;z-index:1;display:flex;justify-content:center;align-items:flex-start;padding:40px 0 46px}
+      .ap-phone{position:relative;width:218px;flex:none;background:#10160f;border:1px solid #33402f;border-radius:30px;box-shadow:0 26px 50px rgba(0,0,0,.5);overflow:hidden}
+      .ap-phone .notch{width:34%;height:5px;border-radius:3px;background:#33402f;margin:9px auto 3px}
+      .ap-pbody{padding:9px 12px 13px}
+      .ap-status{display:flex;align-items:center;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:.58rem;color:#8fa295;padding:0 2px 7px}
+      .ap-status b{color:#dfe9df;font-weight:700}
+      .ap-appbar{display:flex;align-items:center;gap:7px;padding-bottom:9px;border-bottom:1px solid #232e25;margin-bottom:9px}
+      .ap-logo{width:24px;height:24px;border-radius:8px;background:#ff6a38;color:#fff;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:.68rem;flex:none}
+      .ap-appbar b{color:#eef4ef;font-size:.76rem;font-weight:800;line-height:1.2}
+      .ap-appbar small{display:block;color:#8fa295;font-size:.6rem;font-weight:600}
+      .ap-bell{margin-left:auto;position:relative;color:#93a596;flex:none}
+      .ap-bell svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}
+      .ap-bell::after{content:"";position:absolute;top:-1px;right:-1px;width:6px;height:6px;border-radius:50%;background:#ff6a38}
+      .ap-eta{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+      .ap-eta b{font-family:"Bricolage Grotesque",sans-serif;font-size:.92rem;color:#f2f6f2;font-weight:800;line-height:1.2}
+      .ap-eta span{font-family:"JetBrains Mono",monospace;font-size:.58rem;color:#4cc38a;font-weight:700;white-space:nowrap}
+      .ap-eta-sub{font-size:.62rem;color:#8fa295;margin:2px 0 8px}
+      .ap-map{border:1px solid #2b372d;border-radius:11px;overflow:hidden;background:#141d16}
+      .ap-map svg{display:block;width:100%;height:auto}
+      .ap-steps{display:flex;align-items:flex-start;margin:10px 1px 2px}
+      .ap-step{flex:1;text-align:center;position:relative}
+      .ap-step::before{content:"";position:absolute;top:5px;left:-50%;width:100%;height:2px;background:#2b372d}
+      .ap-step:first-child::before{display:none}
+      .ap-step.done::before,.ap-step.on::before{background:#4cc38a}
+      .ap-step i{display:block;width:11px;height:11px;border-radius:50%;background:#2b372d;margin:0 auto;position:relative;z-index:1}
+      .ap-step.done i{background:#4cc38a}
+      .ap-step.on i{background:#ff6a38;box-shadow:0 0 0 4px rgba(255,106,56,.18)}
+      .ap-step span{display:block;font-size:.54rem;font-weight:700;color:#718371;margin-top:4px;line-height:1.25}
+      .ap-step.done span{color:#9db0a2}.ap-step.on span{color:#eef4ef}
+      .ap-rider{display:flex;align-items:center;gap:8px;background:#1a231c;border:1px solid #2e3b31;border-radius:11px;padding:8px 10px;margin-top:9px}
+      .ap-ava{width:27px;height:27px;border-radius:50%;background:rgba(255,106,56,.16);color:#ff7a4d;display:grid;place-items:center;font-size:.62rem;font-weight:800;flex:none}
+      .ap-rider b{display:block;font-size:.68rem;color:#eef4ef;line-height:1.25}
+      .ap-rider small{display:block;font-size:.59rem;color:#8fa295;line-height:1.35}
+      .ap-rider-btns{margin-left:auto;display:flex;gap:5px;flex:none}
+      .ap-rbtn{font-size:.57rem;font-weight:800;border-radius:999px;padding:4px 8px;background:#ff6a38;color:#fff}
+      .ap-rbtn.ghost{background:transparent;color:#dfe9df;border:1px solid #333f35}
+      .ap-order{margin-top:9px;border-top:1px solid #232e25;padding-top:8px}
+      .ap-orow{display:flex;justify-content:space-between;gap:8px;font-size:.64rem;font-weight:600;color:#c8d6c9;padding:2.5px 0}
+      .ap-orow span{font-family:"JetBrains Mono",monospace;font-size:.6rem;color:#8fa295;white-space:nowrap}
+      .ap-orow.total{border-top:1px solid #232e25;margin-top:5px;padding-top:6px;color:#eef4ef;font-weight:800}
+      .ap-orow.total span{color:#eef4ef}
+      .ap-phone.back{width:172px;margin:30px -34px 0 0;z-index:0;opacity:.96;transform:rotate(-3deg)}
+      .ap-phone.main{z-index:2}
+      .ap-menu-item{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid #232e25}
+      .ap-menu-item:last-of-type{border-bottom:none}
+      .ap-thumb{width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;font-size:.56rem;font-weight:800;color:#0d130e}
+      .ap-menu-item b{display:block;font-size:.62rem;color:#e6efe6;line-height:1.25}
+      .ap-menu-item small{display:block;font-size:.55rem;color:#8fa295;line-height:1.3}
+      .ap-add{margin-left:auto;flex:none;font-size:.55rem;font-weight:800;color:#ff7a4d;border:1px solid rgba(255,106,56,.45);border-radius:999px;padding:3px 8px}
+      .ap-cartbtn{display:block;text-align:center;background:#ff6a38;color:#fff;font-weight:800;font-size:.62rem;border-radius:9px;padding:7px 8px;margin-top:9px}
+      .ap-card{position:absolute;z-index:3;display:flex;gap:9px;align-items:flex-start;background:#1a231c;border:1px solid #2e3b31;border-radius:12px;padding:9px 11px;box-shadow:0 16px 34px rgba(0,0,0,.45)}
+      .ap-c1{top:2px;left:0;width:min(196px,47%)}
+      .ap-c2{top:0;right:0;width:min(188px,45%)}
+      .ap-c3{right:0;bottom:64px;width:min(192px,46%)}
+      .ap-c4{left:0;bottom:2px;width:min(204px,48%)}
+      .ap-stars{color:#d9a83f;font-size:.6rem;letter-spacing:2px}
+      .ap-strip{margin-top:13px;padding-top:11px;border-top:1px solid #232e25;text-align:center}
+      .ap-strip-line{display:block;font-size:.72rem;color:#8fa295}
+      .ap-strip-line b{color:#e8f0e8;font-weight:800}
+      .ap-strip-line i{color:#ff6a38;font-style:normal;font-weight:800;margin:0 5px}
+      .ap-strip small{display:block;font-size:.63rem;color:#718371;margin-top:3px}
+      @media (max-width:600px){
+        .ap-stage{display:flex;flex-direction:column;gap:10px}
+        .ap-phones{order:1;padding:2px 0 0;flex-direction:column;align-items:center;gap:12px}
+        .ap-phone.back{margin:0;transform:none;width:min(218px,100%)}
+        .ap-phone.main{width:min(218px,100%)}
+        .ap-card{position:static;width:100%}
+        .ap-c1{order:2}.ap-c2{order:3}.ap-c3{order:4}.ap-c4{order:5}
+      }
       /* Web week dashboard, compact dense analytics panel */
       .dash-compact .cmock-body{padding:11px 13px 12px}
       .dash-compact .kpi-row{gap:6px;margin-bottom:9px}
@@ -2791,8 +2866,30 @@
               '</div>' +
               '<div class="wh-strip"><span class="wh-strip-line"><b>One service</b><i>·</i><b>Same team</b><i>·</i><b>Same data</b></span><small>Your website, bookings, payments and dashboard all run on one system</small></div></div>';
           } else if (s.id === 'app'){
-            cap = 'Your app, on your customers\u2019 phones';
-            body = '<div class="vis-phone-wrap"><div class="vis-phone"><div class="notch"></div><div class="pbody"><div class="app-hero"><small>Good morning</small><b>Your business app</b></div><div class="app-tile"><b>New order received</b><small>Just now \u00b7 Tap to view details</small></div><div class="app-tile"><b>Appointment booked</b><small>Today \u00b7 3:30 PM \u00b7 Confirmed</small></div><div class="app-tile"><b>Tap to reorder</b><small>Your usual, in one tap</small></div><div class="app-tile"><b>Rewards</b><small>Points added to your account</small></div></div></div><div class="vis-phone-cap"><span class="chip">iOS &amp; Android</span><span class="chip">Push notifications</span><span class="chip">Secure logins</span></div></div>';
+            var apIc = function(cls, p){ return '<span class="wh-ic ' + cls + '"><svg viewBox="0 0 24 24">' + p + '</svg></span>'; };
+            var apTick = '<path d="M4 12.5l5 5L20 6.5"/>';
+            return '<div class="sp-visual ap-vis"><p class="vis-cap">A real app your customers use every day: browse, order, track</p>' +
+              '<div class="ap-stage"><div class="ap-glow" aria-hidden="true"></div><div class="ap-glow2" aria-hidden="true"></div>' +
+              '<div class="ap-phones">' +
+              '<div class="ap-phone back"><div class="notch"></div><div class="ap-pbody"><div class="ap-status"><b>9:41</b><span>5G \u25aa 100%</span></div><div class="ap-appbar"><span class="ap-logo">S</span><span><b>Saffron Table</b><small>Menu \u00b7 Open until 11 PM</small></span></div>' +
+              '<div class="ap-menu-item"><span class="ap-thumb" style="background:#e8b04b">BC</span><span><b>Butter Chicken</b><small>Tomato makhani \u00b7 Serves 1</small></span><span class="ap-add">$14.50 \u00b7 Add</span></div>' +
+              '<div class="ap-menu-item"><span class="ap-thumb" style="background:#c96f4a">LB</span><span><b>Lamb Biryani</b><small>Hyderabadi style \u00b7 Spicy</small></span><span class="ap-add">$16.00 \u00b7 Add</span></div>' +
+              '<div class="ap-menu-item"><span class="ap-thumb" style="background:#7fb069">PT</span><span><b>Paneer Tikka</b><small>Charred peppers \u00b7 Starter</small></span><span class="ap-add">$11.50 \u00b7 Add</span></div>' +
+              '<div class="ap-menu-item"><span class="ap-thumb" style="background:#d9a83f">GN</span><span><b>Garlic Naan</b><small>Butter brushed \u00b7 2 pcs</small></span><span class="ap-add">$2.50 \u00b7 Add</span></div>' +
+              '<span class="ap-cartbtn">View cart \u00b7 3 items \u00b7 $19.50</span></div></div>' +
+              '<div class="ap-phone main"><div class="notch"></div><div class="ap-pbody"><div class="ap-status"><b>9:41</b><span>5G \u25aa 100%</span></div><div class="ap-appbar"><span class="ap-logo">S</span><span><b>Saffron Table</b><small>Order #2841 \u00b7 Live tracking</small></span><span class="ap-bell"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg></span></div>' +
+              '<div class="ap-eta"><b>Arriving in 12 min</b><span>LIVE</span></div><p class="ap-eta-sub">Ahmed is on the way to Maple Street 14</p>' +
+              '<div class="ap-map"><svg viewBox="0 0 200 104" role="img" aria-label="Live delivery map: rider Ahmed Raza on the route from Saffron Table restaurant to Maple Street 14"><rect width="200" height="104" fill="#141d16"/><g stroke="#263129" stroke-width="5"><path d="M0 30 H200"/><path d="M0 74 H200"/><path d="M44 0 V104"/><path d="M104 0 V104"/><path d="M158 0 V104"/></g><g stroke="#1d2820" stroke-width="1.5"><path d="M0 52 H200"/><path d="M74 0 V104"/><path d="M132 0 V104"/></g><path d="M30 82 C60 82 62 56 92 54 C118 52 128 30 164 24" fill="none" stroke="#ff6a38" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 6"/><circle cx="30" cy="82" r="9" fill="#1a231c" stroke="#4cc38a" stroke-width="1.5"/><text x="30" y="85.5" font-size="8" fill="#4cc38a" text-anchor="middle" font-weight="700">S</text><circle cx="164" cy="24" r="9" fill="#1a231c" stroke="#8fa295" stroke-width="1.5"/><path d="M160 24.5 l3 3 5.5-6" stroke="#eef4ef" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="97" cy="53" r="10" fill="#ff6a38"/><path d="M92.5 53.5 a4.5 4.5 0 0 1 9 0 c0 3.4-4.5 7-4.5 7 s-4.5-3.6-4.5-7z" fill="#fff"/><circle cx="97" cy="53.3" r="1.9" fill="#ff6a38"/><text x="30" y="99" font-size="6.5" fill="#718371" text-anchor="middle">Restaurant</text><text x="164" y="44" font-size="6.5" fill="#718371" text-anchor="middle">Your home</text></svg></div>' +
+              '<div class="ap-steps"><div class="ap-step done"><i></i><span>Confirmed</span></div><div class="ap-step done"><i></i><span>Preparing</span></div><div class="ap-step on"><i></i><span>On the way</span></div><div class="ap-step"><i></i><span>Delivered</span></div></div>' +
+              '<div class="ap-rider"><span class="ap-ava">AR</span><span><b>Ahmed Raza \u00b7 Your rider</b><small>0.8 km away \u00b7 Bike \u00b7 Arriving 1:24 PM</small></span><span class="ap-rider-btns"><span class="ap-rbtn">Call</span><span class="ap-rbtn ghost">Message</span></span></div>' +
+              '<div class="ap-order"><div class="ap-orow">Butter Chicken \u00d7 1<span>$14.50</span></div><div class="ap-orow">Garlic Naan \u00d7 2<span>$5.00</span></div><div class="ap-orow total">Paid by card<span>$19.50</span></div></div>' +
+              '</div></div></div>' +
+              '<div class="ap-card ap-c1">' + apIc('g', apTick) + '<span class="wh-ct"><b>Order confirmed</b><small>Order #2841 \u00b7 Saffron Table</small><small>Push sent to customer \u00b7 Just now</small></span></div>' +
+              '<div class="ap-card ap-c2">' + apIc('g', '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10.5h18"/><path d="M7 15h4"/>') + '<span class="wh-ct"><b>Payment received</b><small>$19.50 \u00b7 Butter Chicken order</small><small>Card ending 4242 \u00b7 1 min ago</small></span></div>' +
+              '<div class="ap-card ap-c3">' + apIc('o', '<circle cx="6" cy="17" r="3.2"/><circle cx="18" cy="17" r="3.2"/><path d="M6 17 L10 9 h4 l2.5 8M10 9 L8.5 5.5 H6"/>') + '<span class="wh-ct"><b>Rider on the way</b><small>Ahmed Raza \u00b7 0.8 km away</small><small>Live location shared \u00b7 12 min ETA</small></span></div>' +
+              '<div class="ap-card ap-c4">' + apIc('o', '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/>') + '<span class="wh-ct"><b>New 5-star review</b><small><span class="ap-stars" aria-hidden="true">\u2605\u2605\u2605\u2605\u2605</span></small><small>\u201cFood arrived hot and fast.\u201d \u00b7 Sana M.</small></span></div>' +
+              '</div>' +
+              '<div class="ap-strip"><span class="ap-strip-line"><b>Browse</b><i>\u00b7</i><b>Order</b><i>\u00b7</i><b>Pay</b><i>\u00b7</i><b>Track</b></span><small>One app, live on iOS and Android, with push notifications built in</small></div></div>';
           } else if (s.id === 'ai'){
             var bars = [38,62,45,80,55,95,70,40,85,58,100,66,48,78,52,90,42,72,60,35,82,57,68,44].map(function(h,i){ return '<i style="height:' + h + '%;animation-delay:' + (i * 0.07) + 's"></i>'; }).join('');
             cap = 'AI call happening right now';
