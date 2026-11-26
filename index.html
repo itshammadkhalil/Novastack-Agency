@@ -167,6 +167,9 @@
         --line-strong:#c3ccc1;
         --accent:#e8490f;
         --accent-strong:#c23907;
+        --pick-sel-bg:#c23907;
+        --pick-sel-fg:#ffffff;
+        --pick-sel-border:#c23907;
         --accent-soft:#fdeee6;
         --green:#0c5a3e;
         --green-bright:#12805a;
@@ -196,6 +199,9 @@
           --line-strong:#314136;
           --accent:#ff6a38;
           --accent-strong:#ff855c;
+          --pick-sel-bg:#ff6a38;
+          --pick-sel-fg:#070a08;
+          --pick-sel-border:#ff6a38;
           --accent-soft:#2e1a10;
           --green:#4cc38a;
           --green-bright:#4cc38a;
@@ -582,12 +588,35 @@
       .field label,.field .lbl{display:block;font-weight:800;font-size:.92rem;margin-bottom:9px}
       .pick-grid{display:flex;flex-wrap:wrap;gap:8px}
       .pick{
+        display:inline-flex;align-items:center;justify-content:center;gap:8px;
         border:1.5px solid var(--line);background:var(--surface);color:var(--ink-2);
         border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:700;font-size:.9rem;min-height:44px;
-        transition:border-color .15s ease, background .15s ease;
+        transition:border-color .15s ease, background .15s ease, color .15s ease;
       }
       .pick:hover{border-color:var(--muted)}
-      .pick[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+      /* Selected state: solid brand fill plus a checkmark, so a picked
+         service reads as chosen at a glance. The fill and text colours
+         are theme specific via --pick-sel-* so the pairing passes
+         WCAG 2.1 AA in both themes: light theme white text on the
+         deep brand orange is 5.41:1 and the fill boundary against the
+         white form surface is 5.41:1; dark theme near-black text and
+         checkmark on the bright brand orange is 6.98:1 and the fill
+         boundary against the dark form surface is 6.43:1. The
+         checkmark uses currentColor, so it always matches the text
+         contrast. */
+      .pick[aria-pressed="true"]{
+        background:var(--pick-sel-bg);border-color:var(--pick-sel-border);color:var(--pick-sel-fg);
+        font-weight:800;box-shadow:var(--shadow-xs);
+      }
+      .pick[aria-pressed="true"]:hover{border-color:var(--pick-sel-border)}
+      .pick[aria-pressed="true"]::before{
+        content:"";width:15px;height:15px;flex:none;background-color:currentColor;
+        -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+        mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+        -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+        -webkit-mask-position:center;mask-position:center;
+        -webkit-mask-size:contain;mask-size:contain;
+      }
       .txtin{
         width:100%;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;
         padding:12px 14px;color:var(--ink);
