@@ -173,6 +173,11 @@
            measured 3.89:1. Dark theme keeps its brighter accent below,
            which passes on dark surfaces at 6.43:1. */
         --accent:#c23d0d;
+        /* Section kicker labels (.mono in section heads) use a darker
+           orange than the accent: #b5380c on the #f5f6f4 page background
+           is 5.48:1, passing WCAG 2.1 AA 1.4.3 (the old #e8490f measured
+           3.59:1). Labels on dark panels keep the brighter accent. */
+        --accent-label:#b5380c;
         --accent-strong:#c23907;
         --pick-sel-bg:#c23907;
         --pick-sel-fg:#ffffff;
@@ -205,6 +210,9 @@
           --line:#232f27;
           --line-strong:#314136;
           --accent:#ff6a38;
+          /* Dark theme labels keep the bright accent: #ff6a38 on the
+             #070a08 background is 6.98:1, already passing WCAG 2.1 AA. */
+          --accent-label:#ff6a38;
           --accent-strong:#ff855c;
           --pick-sel-bg:#ff6a38;
           --pick-sel-fg:#070a08;
@@ -419,7 +427,7 @@
       @media (max-width:700px){section.block{padding:64px 0}}
       section.block.alt{background:var(--bg-soft);border-block:1px solid var(--line)}
       .sec-head{max-width:46rem;margin-bottom:42px}
-      .sec-head .mono{color:var(--accent)}
+      .sec-head .mono{color:var(--accent-label)}
       .sec-head h2{font-size:clamp(1.95rem,3.8vw,2.75rem);font-weight:800;margin:13px 0 13px}
       .sec-head p{color:var(--muted);font-size:1.06rem}
       .sec-head p strong{color:var(--ink-2)}
@@ -530,7 +538,7 @@
       .why-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
       @media (max-width:880px){.why-layout{grid-template-columns:1fr;gap:28px}}
       .why-intro{position:static}
-      .why-intro .mono{color:var(--accent)}
+      .why-intro .mono{color:var(--accent-label)}
       .why-intro h2{font-size:clamp(1.95rem,3.8vw,2.75rem);font-weight:800;margin:13px 0 14px}
       .why-intro p{color:var(--muted);font-size:1.05rem;margin-bottom:24px}
       .stack-diagram{background:var(--hero-panel);color:var(--on-dark);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
@@ -793,7 +801,7 @@
       .faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:44px;align-items:start}
       @media (max-width:880px){.faq-layout{grid-template-columns:1fr;gap:8px}}
       .faq-side{position:static}
-      .faq-side .mono{color:var(--accent)}
+      .faq-side .mono{color:var(--accent-label)}
       .faq-side h2{font-size:clamp(1.95rem,3.8vw,2.6rem);font-weight:800;margin:13px 0 12px}
       .faq-side p{color:var(--muted)}
       .faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px;overflow:hidden}
@@ -838,7 +846,7 @@
       .legal-back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;font-size:.93rem;color:var(--accent);padding:10px 4px;min-height:44px}
       .legal-back:hover{color:var(--accent-strong)}
       .legal-head{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:10px}
-      .legal-head .mono{color:var(--accent)}
+      .legal-head .mono{color:var(--accent-label)}
       .legal-head h1{font-size:clamp(2rem,4.4vw,2.9rem);font-weight:800;margin:12px 0 10px}
       .legal-head .updated{color:var(--muted);font-size:.92rem}
       .legal-head .intro{color:var(--muted);font-size:1.03rem;margin-top:14px;max-width:40rem}
@@ -871,7 +879,7 @@
       .sp-ctas{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px;align-items:center}
       .sp-ctas .note{font-size:.88rem;color:var(--muted)}
       .sp-section{padding:34px 0 4px}
-      .sp-section .mono{color:var(--accent)}
+      .sp-section .mono{color:var(--accent-label)}
       .sp-section h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin:10px 0 12px}
       .sp-section>p{color:var(--muted);max-width:44rem}
       .sp-section>p+p{margin-top:10px}
