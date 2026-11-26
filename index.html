@@ -482,27 +482,27 @@
       @media (prefers-color-scheme: dark){.bestfor b{color:var(--accent)}}
       .svc-panel .panel-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
       .svc-panel .panel-cta .note{font-size:.88rem;color:var(--muted)}
-      /* Desktop/tablet side panel: one fixed height for all 9 services.
-         The script measures every service at the panel's real width and
-         stores the tallest section heights in the --svc-* variables below,
-         so the title, description, What's included, Tools & Tech, Best for
-         box and View full service page link land in exactly the same place
-         whichever service is selected, and switching services never resizes
-         the panel or shifts the page below it. The fallback values match
-         the tallest service (Websites & Web Apps) at desktop width.
+      /* Desktop/tablet side panel: exactly the height of the 9-service
+         list beside it, so the two columns start and end at the same
+         vertical positions. The script measures the list and stores its
+         height in --svc-panel-h. Inside the panel the sections keep
+         their natural heights and the flex column spreads them evenly
+         with space-between (their usual top margins are removed, so the
+         spacing comes only from that even spread), which means no single
+         large empty gap opens up in the middle of a service with short
+         content. If a service's content ever needs more room than the
+         list height (a narrow window, larger fonts), the script pins
+         that taller natural height instead, so nothing ever overflows
+         the panel and all 9 panels stay the same height as each other.
          Mobile (max-width: 880px) is untouched: the list-only accordion
          keeps its natural height there. */
       @media (min-width:881px){
-        .svc-panel{display:flex;flex-direction:column;min-height:var(--svc-panel-h,690px)}
-        .svc-panel .panel-top{min-height:var(--svc-top-h,52px)}
-        .svc-panel .desc{min-height:var(--svc-desc-h,136px)}
-        .svc-panel .svc-cols{min-height:var(--svc-cols-h,238px)}
-        .svc-panel .bestfor{min-height:var(--svc-best-h,80px)}
+        .svc-panel{display:flex;flex-direction:column;justify-content:space-between;height:var(--svc-panel-h)}
+        .svc-panel .desc,.svc-panel .svc-cols,.svc-panel .bestfor,.svc-panel .panel-cta{margin-top:0}
       }
       /* Hidden measuring clone used by the script to size the panel: it
-         must report natural content heights, with no minimums applied. */
+         must report the natural content height, with no pinned height. */
       .svc-panel.svc-measure{position:absolute !important;left:-9999px;top:0;visibility:hidden;height:auto !important;min-height:0 !important;pointer-events:none}
-      .svc-panel.svc-measure .panel-top,.svc-panel.svc-measure .desc,.svc-panel.svc-measure .svc-cols,.svc-panel.svc-measure .bestfor{min-height:0 !important}
 
       /* Why us */
       .why-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
@@ -2046,48 +2046,38 @@
         selectService(0, false);
       }
 
-      /* ---------- Equal height for the desktop service panel ----------
-         Renders all 9 services into a hidden clone at the panel's real
-         width, measures the tallest panel and the tallest title block,
-         description, included/tools columns and Best for box, and pins
-         those heights on the panel through the --svc-* CSS variables.
-         Every service panel then comes out exactly the same size, with
-         each section in the same place, at any desktop or tablet width.
-         Runs again after fonts load and whenever the window is resized.
-         Desktop and tablet side panel only: on mobile the variables are
+      /* ---------- Panel height matched to the service list ----------
+         Desktop/tablet side panel only. The panel is pinned to the exact
+         height of the 9-service list beside it (--svc-panel-h), so the
+         two columns start and end at the same vertical positions, and
+         the panel's flex column spreads its sections evenly inside that
+         height. As a no-overflow guard, every service is also rendered
+         into a hidden clone at the panel's real width: if the tallest
+         service's natural content height ever beats the list height
+         (narrow window, larger fonts), that taller height is pinned
+         instead, so content never spills out of the panel and all 9
+         panels still share one height. Runs again after fonts load and
+         whenever the window is resized. On mobile the variable is
          cleared and the accordion keeps its natural height. */
       var svcMeasureTimer = null;
       function measureSvcPanelHeights(){
-        if (svcMQ.matches || !svcPanel.offsetWidth) return;
+        if (svcMQ.matches || !svcPanel.offsetWidth || !svcList.offsetHeight) return;
         var clone = document.createElement('article');
         clone.className = 'svc-panel svc-measure';
         clone.setAttribute('aria-hidden', 'true');
         clone.style.width = svcPanel.offsetWidth + 'px';
         svcLayout.appendChild(clone);
-        var maxPanel = 0, maxTop = 0, maxDesc = 0, maxCols = 0, maxBest = 0;
+        var maxPanel = 0;
         SERVICES.forEach(function(s){
           clone.innerHTML = svcPanelHTML(s);
           maxPanel = Math.max(maxPanel, clone.offsetHeight);
-          var t = clone.querySelector('.panel-top');
-          var d = clone.querySelector('.desc');
-          var c = clone.querySelector('.svc-cols');
-          var b = clone.querySelector('.bestfor');
-          if (t) maxTop = Math.max(maxTop, t.offsetHeight);
-          if (d) maxDesc = Math.max(maxDesc, d.offsetHeight);
-          if (c) maxCols = Math.max(maxCols, c.offsetHeight);
-          if (b) maxBest = Math.max(maxBest, b.offsetHeight);
         });
         clone.parentNode.removeChild(clone);
-        svcPanel.style.setProperty('--svc-panel-h', maxPanel + 'px');
-        svcPanel.style.setProperty('--svc-top-h', maxTop + 'px');
-        svcPanel.style.setProperty('--svc-desc-h', maxDesc + 'px');
-        svcPanel.style.setProperty('--svc-cols-h', maxCols + 'px');
-        svcPanel.style.setProperty('--svc-best-h', maxBest + 'px');
+        var target = Math.max(svcList.offsetHeight, maxPanel);
+        svcPanel.style.setProperty('--svc-panel-h', target + 'px');
       }
       function clearSvcPanelHeights(){
-        ['--svc-panel-h','--svc-top-h','--svc-desc-h','--svc-cols-h','--svc-best-h'].forEach(function(v){
-          svcPanel.style.removeProperty(v);
-        });
+        svcPanel.style.removeProperty('--svc-panel-h');
       }
       window.addEventListener('resize', function(){
         if (svcMeasureTimer) clearTimeout(svcMeasureTimer);
