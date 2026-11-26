@@ -685,6 +685,8 @@
       .btn-send{width:100%;margin-top:2px}
       .btn-send[disabled]{opacity:.65;cursor:wait}
       .btn-send[disabled]:active{transform:none}
+      .brief-privacy-note{margin-top:11px;text-align:center;font-size:.84rem;color:var(--muted);line-height:1.5}
+      .brief-privacy-note a{color:var(--accent);font-weight:700;text-decoration:underline;text-underline-offset:2px}
       .form-error{
         background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;
         padding:12px 15px;font-size:.93rem;font-weight:600;color:var(--ink-2);margin-bottom:14px;line-height:1.5;
@@ -1732,6 +1734,7 @@
                 Send my brief
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
               </button>
+              <p class="brief-privacy-note">Your details are only used to reply to your brief. Read our <a href="/privacy">Privacy Policy</a>.</p>
               </div>
               <div class="brief-success" id="briefSuccess" hidden tabindex="-1" role="status">
                 <div class="check-wrap" aria-hidden="true">
